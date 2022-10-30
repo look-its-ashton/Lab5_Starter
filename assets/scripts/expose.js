@@ -9,6 +9,7 @@ function init() {
   let audioSound = document.querySelector("#expose audio");
   let audioSlider = document.querySelector("#volume-controls input");
   let audioSliderImg = document.querySelector("#volume-controls img");
+  const jsConfetti = new JSConfetti();
   hornSelect.addEventListener('input', function() {
     switch(hornSelect.value) {
       case "air-horn":
@@ -52,5 +53,8 @@ function init() {
 
   playSound.addEventListener('click', function() {
     audioSound.play();
+    if (hornSelect.value == "party-horn") {
+      jsConfetti.addConfetti();
+    }
   });
 }
